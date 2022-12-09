@@ -1,0 +1,82 @@
+<html>
+<head>
+<link rel="stylesheet" href="mineFol.css">
+<script src="init_page1.js">
+</script>
+<script src="game_page1.js" defer></script>
+</head>
+
+
+
+
+<body>
+<h1>Welcome to MineFOL game </h1>
+<div id="message_box" width="50px">
+
+<p id="messages"></p>
+
+</div>
+
+<canvas id="board" width="735px" height="735px"> </canvas>
+
+<br>
+<br>
+<div id="buttons">
+<button onclick="showInstructions()">Show Instructions</button>
+&nbsp;&nbsp;
+<button onclick="reset()">Reset game</button>
+&nbsp;&nbsp;
+<button onclick="show_answer()">Show Answer</button>
+&nbsp;&nbsp;
+<button onclick="reset_game()">New Board</button>
+</div>
+
+
+
+<div width="50px">
+<p id="instructions">
+Minefield is a game played on an 8x8 board. You start in the upper left corner and you navigate the board <br>
+using the arrow keys. Your current location is indicated in green. Some cells contain mines; some contain <br>
+messages, others are empty.  If you move into a cell containing a mine, the game immediately ends. If you <br>
+move into a cell containing a message,the message appears in the message area above the board. The  <br>
+message 
+can help you locate mines. The messages are written in natural language. Even though the messages <br> 
+are in natural language your trustfully helper mace4 will receive messages in a relational logic language and  <br>
+it will inform you what cells to avoid. In order to win you need to visit all cells that do not contain a bomb. <br>
+</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="page2.html">If you liked this game try a similar escape room game</a>
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<script>
+
+
+
+
+
+
+</script>
+
+</html>
