@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="pddl" name="PDDL" version="2.0" _section="Source">
+
+ <metadata>
+  <property name="mimetypes">text/x-pddl</property>
+   <property name="globs">*.pddl</property>
+   <property name="line-comment-start">\;</property>
+ </metadata>
+ <styles>
+  
+   <style id="comment" name="Comment" map-to="def:comment"/>
+   <style id="keyword"  name="Keyword"  map-to="def:type"/>
+   <style id="paranthesis" name="Paranthesis" map-to="def:shebang"/>
+    <style id="operator" name="Operator" map-to="def:statement"/>
+    <style id="type" name="Type" map-to="def:identifier"/>
+    <style id="variable" name="Variable" map-to="def:variable"/>
+  
+ </styles>
+
+
+  <default-regex-options case-sensitive="false"/>
+
+
+<definitions>
+
+<define-regex id="key-start">^\s*:\s*</define-regex>
+
+
+   <context id="keywords" style-ref="keyword">
+
+<keyword>domain</keyword>   
+<keyword>define</keyword>
+<keyword>problem</keyword>
+<keyword>assign</keyword>
+<keyword>increase</keyword>
+<keyword>decrease</keyword>
+<keyword>scale-up</keyword>
+<keyword>scale-down</keyword>
+<keyword>minimize</keyword>
+<keyword>maximize</keyword>
+   </context>
+
+
+
+
+    <context id="special-keyword" style-ref="keyword">
+      <match extended="true">
+      \:(objects|goal|init|requirements|types|(action\-costs)|action|metric|effect|parameters|precondition|strips|adl|functions|predicates|typing|constants|fluents|primary-effect|side-effect|equality|conditional-effects|negative-preconditions|disjunctive-preconditions|existential-preconditions|universal-preconditions|quantified-preconditions|durative-actions|duration-inequalities|continuous-effects|durative-action|duration|condition)
+      </match>
+    </context>
+
+
+
+<context id="operator"  style-ref="operator" >
+<keyword>and</keyword>
+<keyword>or</keyword>
+<keyword>when</keyword>
+<keyword>forall</keyword>
+<keyword>exists</keyword>
+<keyword>either</keyword>
+</context>
+
+
+
+<context id="paranthesis" style-ref="paranthesis">
+<match extended="true">
+(\(|\))
+</match>
+</context>
+
+<context id="types" style-ref="type">
+<match extended="true">
+(\ )+\-(\ )+[a-zA-Z0-9]+
+</match>
+
+</context>
+
+<context id="not_c" style-ref="operator">
+<match extended="true">
+not\ 
+</match>
+</context>
+
+<context id="var" style-ref="variable">
+<match extended="true">
+\?[a-zA-Z0-9]+
+</match>
+</context>
+
+
+
+   <context id="pddl" class="no-spell-check" >
+     <include>
+       <context ref="keywords"/>
+       <context ref="special-keyword"/>
+       <context ref="operator"/>
+       <context ref="not_c"/>
+       <context ref="paranthesis"/>
+       <context ref="types"/>
+       <context ref="not_c"/>
+       <context ref="var"/>
+ 
+       
+     </include>
+   </context>
+
+</definitions>
+
+
+</language>
