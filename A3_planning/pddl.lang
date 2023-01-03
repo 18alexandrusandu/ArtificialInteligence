@@ -4,7 +4,7 @@
  <metadata>
   <property name="mimetypes">text/x-pddl</property>
    <property name="globs">*.pddl</property>
-   <property name="line-comment-start">\;</property>
+   <property name="line-comment-start">;</property>
  </metadata>
  <styles>
   
@@ -23,9 +23,15 @@
 
 <definitions>
 
-<define-regex id="key-start">^\s*:\s*</define-regex>
 
-
+   <context id="comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
+      <start>;</start>
+      <include>
+        <context ref="def:escape"/>
+        <context ref="def:in-line-comment"/>
+      </include>
+    </context>
+    
    <context id="keywords" style-ref="keyword">
 
 <keyword>domain</keyword>   
@@ -87,10 +93,9 @@ not\
 </match>
 </context>
 
-
-
    <context id="pddl" class="no-spell-check" >
      <include>
+      <context ref="comment"/>
        <context ref="keywords"/>
        <context ref="special-keyword"/>
        <context ref="operator"/>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="fol" name="FOL" version="2.0" _section="Source">
+
+ <metadata>
+  <property name="mimetypes">text/x-fol</property>
+   <property name="globs">*.fol;*.in;*.out</property>
+   <property name="line-comment-start">%</property>
+ </metadata>
+ <styles>
+  
+   <style id="comment" name="Comment" map-to="def:comment"/>
+   <style id="keyword"  name="Keyword"  map-to="def:type"/>
+   <style id="paranthesis" name="Paranthesis" map-to="def:shebang"/>
+    <style id="operator" name="Operator" map-to="def:statement"/>
+    <style id="argument" name="Type" map-to="def:identifier"/>
+ 
+  
+ </styles>
+
+
+  <default-regex-options case-sensitive="false"/>
+
+
+<definitions>
+
+   <context id="comment" style-ref="comment" end-at-line-end="true" class="comment" class-disabled="no-spell-check">
+      <start>%</start>
+      <include>
+        <context ref="def:escape"/>
+        <context ref="def:in-line-comment"/>
+      </include>
+    </context>
+    
+    
+<context id="keywords" style-ref="keyword">
+<keyword>assign</keyword>
+<keyword>predicate_order</keyword>
+<keyword>function_order</keyword>
+<keyword>set</keyword>
+<keyword>redeclare</keyword>
+<keyword>clear</keyword>
+<keyword>lex</keyword>
+<keyword>skolem</keyword>
+<keyword>list</keyword>
+   </context>
+
+<context id="arguments" style-ref="argument">
+
+<keyword>max_seconds</keyword>   
+<keyword>max_weight</keyword>
+<keyword>prolog_style_variables</keyword>
+<keyword>domain_size</keyword>
+<keyword>max_models</keyword>
+<keyword>max_megs</keyword>
+<keyword>print_models_tabular</keyword>
+<keyword>print_models</keyword>
+<keyword>auto_inference</keyword>
+<keyword>auto</keyword>
+<keyword>inverse_order</keyword>
+<keyword>production</keyword>
+<keyword>binary_resolution</keyword>
+<keyword>neg_binary_resolution</keyword>
+<keyword>ordered_res</keyword>
+<keyword>paramodulation</keyword>
+<keyword>infix_right</keyword>
+<keyword>infix_left</keyword>
+<keyword>infix</keyword>
+<keyword>prefix_paren</keyword>
+<keyword>prefix</keyword>
+<keyword>postfix_paren</keyword>
+<keyword>postfix</keyword>
+<keyword>ordinary</keyword>
+<keyword>arithmetic</keyword>
+<keyword>verbose</keyword>
+<keyword>trace</keyword>
+<keyword>order_domain</keyword>
+<keyword>integer_ring</keyword>
+<keyword>lnh</keyword>
+<keyword>selection_order</keyword>
+<keyword>selection_measure</keyword>
+<keyword>negprop</keyword>
+<keyword>neg_assign</keyword>
+<keyword>neg_assign_near</keyword>
+<keyword>neg_elim</keyword>
+<keyword>neg_elim_near</keyword>
+<keyword>skolems_last</keyword>
+<keyword>start_size</keyword>
+<keyword>end_size</keyword>
+<keyword>increment</keyword>
+<keyword>iterate</keyword>
+<keyword>max_seconds_per</keyword>
+<keyword>check_res_instances</keyword>
+<keyword>pos_hyper_resolution</keyword>
+<keyword>hyper_resolution</keyword>
+<keyword>neg_hyper_resolution</keyword>
+<keyword>ur_resolution</keyword>
+<keyword>pos_ur_resolution</keyword>
+<keyword>neg_ur_resolution</keyword>
+<keyword>initial_nuclei</keyword>
+<keyword>ur_nucleus_limit</keyword>
+<keyword>ordered_para</keyword>
+<keyword>check_para_instances</keyword>
+<keyword>para_from_vars</keyword>
+<keyword>basic_paramodulation</keyword>
+<keyword>para_units_only</keyword>
+<keyword>para_lit_limit</keyword>
+<keyword>max_proofs</keyword>
+<keyword>max_minutes</keyword>
+<keyword>max_hours</keyword>
+<keyword>max_days</keyword>
+<keyword>max_given</keyword>
+<keyword>max_literals</keyword>
+<keyword>back_demod</keyword>
+<keyword>unit_deletion</keyword>
+<keyword>quit</keyword>
+<keyword>echo_input</keyword>
+<keyword>print_gen</keyword>
+<keyword>print_given</keyword>
+<keyword>print_kept</keyword>
+<keyword>print_proofs</keyword>
+<keyword>print_initial_clauses</keyword>
+<keyword>print_labeled</keyword>
+<keyword>print_clause_properties</keyword>
+<keyword>default_output</keyword>
+<keyword>report</keyword>
+<keyword>stats</keyword>
+<keyword>clocks</keyword>
+<keyword>bell</keyword>
+<keyword>factor</keyword>
+<keyword>restrict_denials</keyword>
+<keyword>eval_limit</keyword>
+<keyword>multiple_interps</keyword>
+   </context>
+
+    <context id="special-keyword1" style-ref="keyword">
+      <match extended="true">
+      formulas\((sos|goals|assumptions|usable|demodulators|hints)\)\.
+      </match>
+  
+    </context>
+    
+<context id="special-keyword2" style-ref="keyword">
+   <match extended="true">
+      list\(distinct\)\.
+      </match>
+  </context> 
+  
+<context id="special-keyword3" style-ref="keyword">
+      <match extended="true">
+      end_of_list\.
+      </match>
+  </context> 
+  
+    
+    
+<context id="operator"  style-ref="operator" >
+  <match extended="true">
+  (\| | &amp; | \&lt;\-&gt; |\-&gt; |&lt;\-| \- ) 
+ </match>
+</context>
+
+
+<context id="operator2"  style-ref="operator" >
+ <keyword>all</keyword>
+ <keyword>exists</keyword> 
+</context>
+
+<context id="paranthesis" style-ref="paranthesis">
+<match extended="true">
+(\(|\)|\.)
+</match>
+</context>
+
+
+   <context id="fol" class="no-spell-check" >
+     <include>
+       <context ref="comment"/>
+       <context ref="keywords"/>
+       <context ref="arguments"/>
+       <context ref="special-keyword1"/>
+       <context ref="special-keyword2"/>
+       <context ref="special-keyword3"/>
+       <context ref="operator"/>
+       <context ref="operator2"/>
+       <context ref="paranthesis"/>
+
+       
+     </include>
+   </context>
+
+</definitions>
+
+
+</language>
