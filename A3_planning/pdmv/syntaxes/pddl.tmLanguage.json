@@ -1,0 +1,110 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "pddl",
+	"patterns": [
+
+
+		
+		{
+			"include": "#paranthesis"
+		},
+		{
+			"include": "#keywords2"
+		},
+
+		{
+			"include": "#types"
+		},
+
+		{
+			"include": "#operators"
+		},
+
+		{
+			"include": "#operator_not"
+		},
+		{
+			"include": "#keywordses"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#numbers"
+		}
+
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"begin":"\\;",
+				"end":"\\n",
+				"name": "comment.control.pddl"
+			}]
+		},
+		"keywords2": {
+
+			
+			"patterns": [{
+				"name": "keyword.control.pddl",
+				"match": "\\:(objects|goal|init|requirements|types|action-costs|action|metric|effect|parameters|precondition|strips|adl|functions|predicates|typing|constants|fluents|primary-effect|side-effect|equality|conditional-effects|negative-preconditions|disjunctive-preconditions|existential-preconditions|universal-preconditions|quantified-preconditions|durative-actions|duration-inequalities|continuous-effects|durative-action|duration|condition)\\b"
+			}]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "keyword.operator.new.pddl",
+				"match": "\\b(and|or|when|forall|exists|either|increase|decrease|scale-up|scale-down|minimize|maximize)\\b"
+			
+				
+			}]
+		},
+        "operator_not":{
+			"patterns": [{
+				"name": "keyword.operator.new.pddl",
+				"match": "not\\ "
+			
+				
+			}]
+		},
+		"types": {
+			"patterns": [{
+				"name": "entity.name.class.pddl",
+				"match": "(\\ )+\\-(\\ )+[a-zA-Z0-9]+"
+			
+				
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"name": "variable.name.pddl",
+				"match": "\\?[a-zA-Z0-9]+"
+				
+			}]
+		},
+		"paranthesis": {
+			"patterns": [{
+			  "match":"\\)\\(",
+			  "name": "punctuation.paren.pddl" 
+		
+		}]
+			
+		},
+		"keywordses": {
+			"patterns": [{
+				"name": "keyword.control.pddl",
+				"match": "\\b(domain|define|problem|assign)\\b"
+			}]
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "keyword.other.unit.pddl",
+				"match": "\\b[0-9]+\\b"
+			}]
+		}
+		
+	},
+	"scopeName": "source.pddl"
+}

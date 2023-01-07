@@ -1,0 +1,25 @@
+{
+  "name": "pdmv",
+  "displayName": "pddl_smart_view",
+  "description": "pddl programing language syntax highlight",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pddl",
+      "aliases": ["pddl", "pddl"],
+      "extensions": [".pddl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pddl",
+      "scopeName": "source.pddl",
+      "path": "./syntaxes/pddl.tmLanguage.json"
+    }]
+  }
+}

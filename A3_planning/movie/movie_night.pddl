@@ -14,6 +14,7 @@
 (:types food soda people time location movie ticket)  
 
 (:predicates
+        ;'l;l';';llk,l,;l''
         
         
               (not-to-mall-p ?p)

@@ -1,0 +1,145 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "fol",
+	"patterns": [
+		{
+			"include": "#keywords5"
+		},
+		{
+			"include": "#arithmetic_tag"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#keywords2"
+		},
+		{
+			"include": "#keywords3"
+		},
+		{
+			"include": "#keywords4"
+		},
+	
+		{
+			"include": "#paranthesis"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#block_comments"
+		},
+		{
+			"include": "#operators"
+
+		},
+		{
+			"include": "#numbers"
+		},
+		
+		{
+			"include": "#arithmetic_operators"
+		}
+		
+	 ],
+
+	"repository" : {
+		"comments": {
+			"patterns": [{
+				"begin":"%",
+				"end":"\\n",
+				"name": "comment.control.fol"
+			}]
+		},
+		"block_comments": {
+			"patterns": [{
+				"begin":"%BEGIN",
+				"end":"%END",
+				"name": "comment.control.fol"
+			}]
+		},
+		"keywords": {
+
+			"patterns": [{
+				"name": "keyword.control.fol",
+				"match": "\\b(assign|predicate_order|function_order|set|redeclare|clear|lex|skolem|list)\\b"
+			}]
+		},
+		"keywords2": {
+			"patterns":[{
+				"name": "variable.parameter.fol",
+				"match": "(domain_size|max_models|max_proofs|binary_resolutio|max_seconds|max_weight|prolog_style_variables|production|paramodulation)"
+			}]
+		},
+
+		"keywords3": {
+			"patterns":[{
+			"name": "keyword.control.fol",
+			"match": "formulas\\((sos|goals|assumptions|usable|demodulators|hints)\\)\\."
+		}]
+	},
+	"keywords4": {
+		"patterns":[{
+		"name": "keyword.control.fol",
+		"match": "\\b(if|end_if|end_of_list)\\b\\."
+	}]
+   },
+   "keywords5": {
+	"patterns":[{
+	"name": "keyword.control.fol",
+	"match": "list\\(distinct\\)\\."
+   }]
+   },
+   "paranthesis": {
+	"patterns": [{
+	  "match":"\\)\\(",
+	  "name": "punctuation.paren.fol" 
+
+       }]
+	
+   },
+
+   "arithmetic_operators":{
+
+	"patterns": [{
+		"name": "keyword.operator.new.fol",
+		"match": "(\\+|/|==|=|\\<=|\\>=|\\>|\\<)"
+	}]
+     },
+    "arithmetic_tag":{
+
+	
+		"patterns": [{
+			 
+		"match":"\\(arithmetic\\)\\.",
+		"name":"entity.name.class.fol"
+
+		}
+	
+	]
+	},
+
+
+
+
+	 "numbers": {
+		"patterns": [{
+			"name": "keyword.other.unit.fol",
+			"match": "\\b[0-9]+\\b"
+		}]
+	},
+		"operators": {
+
+			"patterns": [{
+				"name": "keyword.operator.new.fol",
+				"match": "(\\&|\\||\\<-\\>|-\\>|\\<-|-|all|exists|$F|$T|mod|mix|max|abs|\\.)"
+			}]
+		}
+
+
+
+		
+	},
+	"scopeName": "source.fol"
+}
