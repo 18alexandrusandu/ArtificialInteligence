@@ -6,9 +6,6 @@
 			"include": "#keywords5"
 		},
 		{
-			"include": "#arithmetic_tag"
-		},
-		{
 			"include": "#keywords"
 		},
 		{
@@ -36,10 +33,6 @@
 		},
 		{
 			"include": "#numbers"
-		},
-		
-		{
-			"include": "#arithmetic_operators"
 		}
 		
 	 ],
@@ -69,7 +62,7 @@
 		"keywords2": {
 			"patterns":[{
 				"name": "variable.parameter.fol",
-				"match": "(domain_size|max_models|max_proofs|binary_resolutio|max_seconds|max_weight|prolog_style_variables|production|paramodulation)"
+				"match": "(domain_size|max_models|max_proofs|binary_resolutio|max_seconds|max_weight|prolog_style_variables|production|paramodulation|print_gen)"
 			}]
 		},
 
@@ -133,7 +126,7 @@
 
 			"patterns": [{
 				"name": "keyword.operator.new.fol",
-				"match": "(\\&|\\||\\<-\\>|-\\>|\\<-|-|all|exists|$F|$T|mod|mix|max|abs|\\.)"
+				"match": "(\\&|\\||\\<-\\>|-\\>|\\<-|-)\\.)"
 			}]
 		}
 
