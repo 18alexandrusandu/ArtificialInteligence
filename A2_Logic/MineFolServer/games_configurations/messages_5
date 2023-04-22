@@ -1,0 +1,6 @@
+1 2 exists y (y>6-> -mine(y,x)).No mine has the row bigger than 6
+2 7 exists x (x<4-> -mine(y,x)).No mine has the column smaller than 4
+2 2 exists x (x<4-> -mine(y,x)).No mine has the column smaller than 4
+2 4 exists y (y<3-> -mine(y,x)).No mine has the row smaller than 3
+7 3 -(exists x (x>=1 & mine(x,2))). no mine on column 2
+8 2 exists x (x>=1 & mine(x,4)).there is at least a mine on column 4

@@ -1,0 +1,10 @@
+7 7 -(exists x mine(x,x)).no mine on the main diagonal 
+7 2 -(exists x mine(5,x)). no mine on the row 5
+5 1 -(exists x mine(x,7)). no mine on column 7
+2 5 mine(3,6). mine on location (3,6)
+4 4 mine(8,1). mine on location (8,1)
+7 5 mine(8,1). mine on location (8,1)
+7 6 exists x x>=1 & mine(6,x)->mine(1,x).if there is a mine on the line 6 there is a bomb on the line 1at the same column
+4 7 -mine(1,5).no mine on location (1,5)
+6 5 mine(3,6). mine on location (3,6)
+5 4 exists x x>=1 & mine(5,x)->mine(2,x).if there is a mine on the line 5 there is a bomb on the line 2at the same column

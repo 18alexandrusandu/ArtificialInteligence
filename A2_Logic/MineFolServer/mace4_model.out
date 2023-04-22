@@ -1,0 +1,173 @@
+============================== Mace4 =================================
+Mace4 (64) version 2017-11A (CIIRC), November 2017.
+Process 16176 was started by alex on alex-IdeaPad-Gaming-3-15ACH6,
+Fri Dec  9 17:55:03 2022
+The command was "mace4 -m 3 -n 9 -c -f mace4_builder.in".
+============================== end of head ===========================
+
+============================== INPUT =================================
+
+% Reading from file mace4_builder.in
+
+assign(domain_size,9).
+    % assign(domain_size, 9) -> assign(start_size, 9).
+    % assign(domain_size, 9) -> assign(end_size, 9).
+set(arithmetic).
+    % set(arithmetic) -> clear(lnh).
+    % set(arithmetic) -> assign(selection_order, 0).
+
+    % Declaring Mace4 arithmetic parse types.
+
+formulas(assumptions).
+mine(x,y) | safe(x,y).
+mine(x,y) -> -safe(x,y).
+safe(1,1).
+y < 4 & y != 3 -> mine(y,3).
+(all x -mine(x,x)).
+(all x -mine(x,x)).
+mine(7,2).
+safe(8,2).
+end_of_list.
+
+% From the command line: assign(max_models, 3).
+    % assign(domain_size, 9) -> assign(start_size, 9).
+    % assign(domain_size, 9) -> assign(end_size, 9).
+
+% From the command line: assign(domain_size, 9).
+
+============================== end of input ==========================
+
+============================== PROCESS NON-CLAUSAL FORMULAS ==========
+
+% Formulas that are not ordinary clauses:
+1 mine(x,y) -> -safe(x,y) # label(non_clause).  [assumption].
+2 y < 4 & y != 3 -> mine(y,3) # label(non_clause).  [assumption].
+3 (all x -mine(x,x)) # label(non_clause).  [assumption].
+4 (all x -mine(x,x)) # label(non_clause).  [assumption].
+
+============================== end of process non-clausal formulas ===
+
+============================== CLAUSES FOR SEARCH ====================
+
+formulas(mace4_clauses).
+mine(x,y) | safe(x,y).
+-mine(x,y) | -safe(x,y).
+safe(1,1).
+-(x < 4) | 3 = x | mine(x,3).
+-mine(x,x).
+-mine(x,x).
+mine(7,2).
+safe(8,2).
+end_of_list.
+
+============================== end of clauses for search =============
+
+% The largest natural number in the input is 8.
+
+============================== DOMAIN SIZE 9 =========================
+
+============================== MODEL =================================
+
+interpretation( 9, [number=1, seconds=0], [
+
+        relation(mine(_,_), [
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 1, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0 ]),
+
+        relation(safe(_,_), [
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 0, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1 ])
+]).
+
+============================== end of model ==========================
+
+============================== MODEL =================================
+
+interpretation( 9, [number=2, seconds=0], [
+
+        relation(mine(_,_), [
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 1, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 1, 0 ]),
+
+        relation(safe(_,_), [
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 0, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 0, 1 ])
+]).
+
+============================== end of model ==========================
+
+============================== MODEL =================================
+
+interpretation( 9, [number=3, seconds=0], [
+
+        relation(mine(_,_), [
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 1, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 0, 0, 0,
+			   0, 0, 1, 0, 0, 0, 0, 0, 0,
+			   0, 0, 0, 0, 0, 0, 1, 0, 0 ]),
+
+        relation(safe(_,_), [
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 0, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 1, 1, 1,
+			   1, 1, 0, 1, 1, 1, 1, 1, 1,
+			   1, 1, 1, 1, 1, 1, 0, 1, 1 ])
+]).
+
+============================== end of model ==========================
+
+============================== STATISTICS ============================
+
+For domain size 9.
+
+Current CPU time: 0.00 seconds (total CPU time: 0.00 seconds).
+Ground clauses: seen=192, kept=176.
+Selections=68, assignments=70, propagations=98, current_models=3.
+Rewrite_terms=0, rewrite_bools=266, indexes=0.
+Rules_from_neg_clauses=0, cross_offs=0.
+
+============================== end of statistics =====================
+
+User_CPU=0.00, System_CPU=0.00, Wall_clock=0.
+
+Exiting with 3 models.
+
+Process 16176 exit (max_models) Fri Dec  9 17:55:03 2022
+The process finished Fri Dec  9 17:55:03 2022

@@ -1,0 +1,4 @@
+3 7  all x (-mine(x,x)). nicio mina pe diagonala
+4 3 mine(4,8). mima la 4,8
+4 4 mine(5,7). mina la 5,7
+1 2 (y<4 & y!=3) -> mine(y,3).  mina pe coloana 3 daca y<4 si x!=3

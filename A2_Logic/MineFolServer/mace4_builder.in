@@ -1,0 +1,12 @@
+assign(domain_size,9).
+set(arithmetic).
+formulas(assumptions).
+mine(x,y) | safe(x,y).
+mine(x,y)->-safe(x,y).
+safe(1,1).
+(y<4 & y!=3) -> mine(y,3).
+ all x (-mine(x,x)).
+ all x (-mine(x,x)).
+mine(7,2).
+safe(8,2).
+end_of_list.
